@@ -94,8 +94,9 @@
 .field input {
   width: 100%;
   border-radius: 4px;
-  border: 2px solid #000;
+  border: 1px solid #000;
   font-size: 16px;
+  padding: 4%;
 }
 
 .field input:valid {

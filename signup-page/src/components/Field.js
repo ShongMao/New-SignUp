@@ -1,40 +1,34 @@
-function Field ({type}) {
+function Field ({type, onChange, value, error}) {
   const config = {
     'First Name': {
       id: 'firstName',
       inputType: 'text',
       pattern: '^[A-Za-z]+$',
-      errorMessage: "No numbers or special characters"
     },
     'Last Name': {
       id: 'lastName',
       inputType: 'text',
       pattern: '^[A-Za-z]+$',
-      errorMessage: "No numbers or special characters"
     },
     'Email': {
       id: 'email',
       inputType: 'email',
-      pattern: '^[A-Za-z@.]+$',
-      errorMessage: "Please enter a valid email address"
+      pattern: '^[A-Za-z0-9@.]+$',
     },
     'Phone Number': {
       id: 'phoneNumber',
       inputType: 'tel',
       pattern: '^\\+?[0-9]{10,15}$',
-      errorMessage: "No numbers or special characters"
     },
     'Password': {
       id: 'password',
       inputType: 'password',
       pattern: '^.*$',
-      errorMessage: "Invalid password"
     },
     'Confirm Password': {
       id: 'confirmPassword',
       inputType: 'password',
       pattern: '^.*$',
-      errorMessage: "Passwords must match"
     }
   } 
   const processType = config[type]
@@ -46,16 +40,23 @@ function Field ({type}) {
 
 
   return (
-    <div class="field">
+    <div className="field">
       <div>
-        <label for={processType.id}>{type}</label>
+        <label htmlFor={processType.id}>{type}</label>
       </div>
       <input 
         type={processType.inputType} 
         id={processType.id} 
         pattern={processType.pattern}
         required
+        onChange = {onChange}
+        value = {value}
       />
+      {error && (
+        <div className="error-message" style={{color: 'red', fontSize: '0.8rem'}}>
+          {error}
+        </div>
+      )}
     </div>
   )
 }

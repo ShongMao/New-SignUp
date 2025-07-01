@@ -3,7 +3,7 @@ import SignUp from './SignUpComponent';
 
 function RightSide() {
   return (
-    <div class="right">
+    <div className="right">
       <Header />
       <SignUp />
     </div>
