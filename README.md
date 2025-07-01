@@ -1,1 +1,1 @@
-# New-SignUp
+This is a sign up page template that was made from scratch using react, html, and css.
